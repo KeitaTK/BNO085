@@ -11,7 +11,7 @@ from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 import matplotlib.pyplot as plt
 
 # シリアルポートの設定 (環境に応じて変更してください)
-SERIAL_PORT = 'COM4'  # Windows: 'COM4', Linux/Mac: '/dev/ttyACM0'
+SERIAL_PORT = 'COM11'  # Windows: 'COM4', Linux/Mac: '/dev/ttyACM0'
 BAUDRATE = 115200
 
 # シリアル通信の初期化
