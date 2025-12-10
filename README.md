@@ -35,6 +35,11 @@ SCL    → GP5 (Pin 7)
 SDA    → GP4 (Pin 6)
 ```
 
+#### 配線写真 (BNO085-RaspberryPiPico_haisenn)
+
+![](RaspiPico-I2C/BNO085-RaspberryPiPico_haisenn.jpg)
+
+キャプション: BNO085 の VCC/GND/SCL/SDA を Raspberry Pi Pico の 3.3V/GND/GP5/GP4 に接続した例。
 ### CircuitPython環境構築
 
 1. **CircuitPythonのインストール**
@@ -242,3 +247,4 @@ BNO085とmatplotlib 3Dの座標系の違いを補正するため、以下の処�
   - 高精度タイムスタンプ（6桁）
   - CSV自動保存機能
   - キャリブレーション機能
+
