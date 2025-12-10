@@ -28,6 +28,7 @@ except Exception as e:
         time.sleep(1)
 
 try:
+    loop_count = 0
     while True:
         try:
             quat = sensor.quaternion  # (i, j, k, real)
@@ -36,9 +37,17 @@ try:
                 time.sleep(0.05)
                 continue
 
-            # 端末/PC の受け取り側が期待する順で送信 (i j k real)
-            send_str = " ".join([str(q) for q in quat])
+            # モノトニック時刻を取得（秒単位、小数点以下がマイクロ秒）
+            timestamp = time.monotonic()
+            # 端末/PC の受け取り側が期待する順で送信 (i j k real timestamp)
+            send_str = " ".join([str(q) for q in quat]) + f" {timestamp}"
             print(send_str)
+            
+            # デバッグ: 10回に1回タイムスタンプを表示
+            loop_count += 1
+            if loop_count % 10 == 0:
+                print(f"[DEBUG] Sent timestamp: {timestamp}")
+            
             # 読み取り間隔
             time.sleep(0.02)
 
