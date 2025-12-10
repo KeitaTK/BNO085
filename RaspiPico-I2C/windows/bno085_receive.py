@@ -31,18 +31,13 @@ except Exception as e:
 print("[INFO] Start receiving loop. Waiting for data...")
 try:
     while True:
-        in_waiting = ser.in_waiting
-        print(f"[DEBUG] ser.in_waiting={in_waiting}")
         try:
-            if in_waiting:
-                data = ser.readline().decode(errors="ignore").strip()
+            data = ser.readline().decode(errors="ignore").strip()
+            if data:
                 print(f"[INFO] Received: {data}")
                 debug_quaternion(data)
-            else:
-                print(f"[DEBUG] No data in buffer.")
         except Exception as e:
             print(f"[ERROR] Exception while reading serial: {e}")
-        time.sleep(0.5)
 except KeyboardInterrupt:
     print("[INFO] Exiting...")
 except Exception as e:
