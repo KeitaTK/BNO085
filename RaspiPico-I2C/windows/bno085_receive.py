@@ -1,6 +1,9 @@
 
 import serial
 import time
+
+import serial
+import time
 import sys
 
 PORT = "COM11"
@@ -27,7 +30,6 @@ except Exception as e:
 
 print("[INFO] Start receiving loop. Waiting for data...")
 try:
-    last_in_waiting = 0
     while True:
         in_waiting = ser.in_waiting
         print(f"[DEBUG] ser.in_waiting={in_waiting}")
